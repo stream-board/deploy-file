@@ -55,6 +55,9 @@ services:
     command: bash -c "python3.6 manage.py runserver 0.0.0.0:4004"
     environment: 
       PORT: '4004'
+    #TODO: Delete
+    ports:
+      - '4004:4004'
     depends_on:
       - chat-db-1
       - chat-db
@@ -64,8 +67,18 @@ services:
     image: lacardenasv/2e_board_ms
     environment: 
       PORT: '4002'
+    #TODO: Delete
+    ports:
+      - '4002:4002'
     depends_on:
       - board-db
+  streaming-ms:
+    image: lacardenasv/2e_video_streaming_ms
+    environment:
+      PORT: '4005'
+    #TODO: Delete
+    ports:
+      - '4005:4005'
   streamboard-ldap:
     image: osixia/openldap:1.1.8
     container_name: streamboard-ldap
