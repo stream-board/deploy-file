@@ -4,9 +4,6 @@ services:
     image: lacardenasv/2e_stream-board_proxy
     depends_on:
       - stream-board-api
-      - chat-ms
-      - board-ms
-      - streaming-ms
     ports:
       - "80:80"
   stream-board-api:
@@ -19,6 +16,12 @@ services:
       AUTHENTICATION_ENTRY1: 'users'
       AUTH_PORT: '4003'
       AUTH_ENTRY: 'ldap/'
+      BOARD_PORT: '4002'
+      BOARD_ENTRY: 'api'
+      CHAT_PORT: '4004'
+      CHAT_ENTRY: 'chat-room'
+      ROOMS_PORT: '4001'
+      ROOMS_ENTRY: 'rooms'
   authentication-db:
     image: mysql:5.7.22
     ports:
