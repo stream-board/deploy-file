@@ -58,7 +58,7 @@ services:
       MYSQL_HOST: chat-db
   chat-ms:
     image: lacardenasv/2e_chat_ms
-    command: bash -c "python3.6 manage.py runserver 0.0.0.0:4004"
+    command: bash -c "python3.6 manage.py runserver 35.190.138.158:4004"
     environment: 
       PORT: '4004'
     #TODO: Delete
