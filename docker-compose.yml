@@ -4,6 +4,9 @@ services:
     image: lacardenasv/2e_stream-board_proxy
     depends_on:
       - stream-board-api
+      - chat-ms
+      - board-ms
+      - streaming-ms
     ports:
       - "80:80"
   stream-board-api:
