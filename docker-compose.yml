@@ -5,6 +5,7 @@ services:
     depends_on:
       - stream-board-api
       - authentication-ms
+      - chat-ms
     ports:
       - "80:80"
   stream-board-api:
