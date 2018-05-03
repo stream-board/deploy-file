@@ -6,6 +6,7 @@ services:
       - stream-board-api
       - authentication-ms
       - chat-ms
+      - board-ms
     ports:
       - "80:80"
   stream-board-api:
