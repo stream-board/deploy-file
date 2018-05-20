@@ -42,11 +42,23 @@ services:
       PORT: '4003'
     depends_on:
       - authentication-db
+  rooms-db:
+    image: mysql:5.7.22
+    ports:
+      - "3310:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_USER: roomsUser
+      MYSQL_PASSWORD: 123
+      MYSQL_DATABASE: rooms
+      MYSQL_HOST: rooms-db
   rooms-ms:
     image: lacardenasv/2e_room_ms
     command: run main.go
     environment:
       PORT: '4001'
+    depends_on:
+      - rooms-db
   chat-db-1:
     image: redis:latest
   chat-db:
