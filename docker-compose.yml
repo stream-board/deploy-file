@@ -9,6 +9,12 @@ services:
       - board-ms
     ports:
       - "80:80"
+  stream-board-subscriptions-socket-server:
+    image: afelipega/2e_subscriptions_socket_server
+    depends_on:
+      - stream-board-api
+    ports:
+      - "5555:3000"
   stream-board-api:
     image: lacardenasv/2e_streamboard_api
     environment:
