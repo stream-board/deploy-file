@@ -9,12 +9,6 @@ services:
       - board-ms
     ports:
       - "80:80"
-  stream-board-subscriptions-socket-server:
-    image: afelipega/2e_subscriptions_socket_server
-    depends_on:
-      - stream-board-api
-    ports:
-      - "5555:3000"
   stream-board-api:
     image: lacardenasv/2e_streamboard_api
     environment:
@@ -33,6 +27,12 @@ services:
       ROOMS_ENTRY: 'rooms'
     ports:
       - "5000:5000"
+    depends_on:
+      - stream-board-subscriptions-socket-server
+  stream-board-subscriptions-socket-server:
+    image: afelipega/2e_subscriptions_socket_server
+    ports:
+      - "5555:3000"
   authentication-db:
     image: mysql:5.7.22
     ports:
